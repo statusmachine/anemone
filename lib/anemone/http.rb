@@ -68,6 +68,13 @@ module Anemone
     end
 
     #
+    # What encoding(s) does this HTTP client accept from the server?
+    #
+    def accept_encoding
+      @opts[:accept_encoding]
+    end
+
+    #
     # Does this HTTP client accept cookies from the server?
     #
     def accept_cookies?
@@ -127,6 +134,7 @@ module Anemone
       opts = {}
       opts['User-Agent'] = user_agent if user_agent
       opts['Referer'] = referer.to_s if referer
+      opts['Accept-Encoding'] = accept_encoding
       opts['Cookie'] = @cookie_store.to_s unless @cookie_store.empty? || (!accept_cookies? && @opts[:cookies].nil?)
 
       retries = 0

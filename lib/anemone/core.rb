@@ -9,7 +9,7 @@ require 'anemone/storage/base'
 
 module Anemone
 
-  VERSION = '0.7.2';
+  VERSION = '0.7.3';
 
   #
   # Convenience method to start a crawl
@@ -48,6 +48,8 @@ module Anemone
       :cookies => nil,
       # accept cookies from the server and send them back?
       :accept_cookies => false,
+      # what encoding(s) to accept from the server?
+      :accept_encoding => '',
       # skip any link with a query string? e.g. http://foo.com/?u=user
       :skip_query_strings => false,
       # proxy server hostname 
